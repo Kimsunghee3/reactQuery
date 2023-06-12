@@ -5,7 +5,7 @@ const counterState = atom({
     default: 0
 })
 
-export const Counter = () => {
+export const CharacterCounter = () => {
     const [count, setCount] = useRecoilState(counterState)
 
     const increment = () => {
@@ -19,8 +19,8 @@ export const Counter = () => {
     return(
         <div>
             <h2> 카운터: {count} </h2>
-            <button onClick={increment()}>증가</button>
-            <button onClick={decrement()}>감소</button>
+            <button onClick={increment}>증가</button>
+            <button onClick={decrement}>감소</button>
         </div>
     )
 }

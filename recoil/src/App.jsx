@@ -1,11 +1,8 @@
-import { RecoilRoot }from "recoil"
-import { CharacterCounter } from "./pages"
+import { CharacterCounter } from "./pages/index"
 
 function App(){
   return(
-    <RecoilRoot>
       <CharacterCounter />
-    </RecoilRoot>
   )
 }
 
