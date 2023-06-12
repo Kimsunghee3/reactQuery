@@ -31,14 +31,49 @@ useMutation(key, function, options)
 promise처리가 이루어지는 함수다.
 
 
-### todo 할일 관리 프로그램만들기
-물론입니다! Recoil, useQuery, useMutation을 활용하여 간단한 할일 관리 애플리케이션을 만들어보는 것을 추천드립니다. 이를 통해 세 가지 라이브러리를 함께 사용하는 방법과 데이터 상태 관리, 비동기 데이터 처리 등을 경험할 수 있습니다.
-
-할일 관리 애플리케이션은 일상 생활에서 자주 사용되는 기능이고, 간단하면서도 실용적인 예시입니다. 사용자가 할일을 추가하고, 완료한 할일을 체크박스로 표시하는 기능을 구현해보세요. 이를 위해 Recoil의 atom과 selector를 사용하여 할일 목록을 관리하고, react-query의 useQuery와 useMutation을 사용하여 데이터를 가져오고 수정합니다.
-
-위의 코드 예시를 참고하여 할일 목록 애플리케이션을 만들어보세요. 사용자가 새로운 할일을 입력하고 추가할 수 있으며, 추가된 할일 목록을 화면에 표시합니다. 또한 완료한 할일은 체크박스를 통해 표시할 수 있도록 구현해보세요.
-
-이를 통해 Recoil, useQuery, useMutation의 활용 방법을 실제 예시를 통해 익힐 수 있을 것입니다. 만들어보면서 필요한 부분이나 궁금한 점이 있다면 언제든지 물어보세요!
+### async await 
+> async
+async await을 통해 promise를 편리하게 사용할 수 있다.
+async는 function앞에 위치한다. async가 붙여진 함수는 항상 `promise`를 반환한다.
 ```jsx
-
+async function a(){
+    return 1
+}
 ```
+
+>await
+await는 async함수 안에서만 동작한다.
+await키워드를 만나면 프라미스가 처리될 때까지 기다린다.
+```jsx
+async function f(){
+    let promise = new Promise((resolve,reject) => {
+        setTimeout(() => resolve("완료"), 1000)
+    })
+
+    // 함수를 실행하게 되면 아래의 코드에서 잠시 실행이 중단되었다가
+    // promise가 처리되면 다시 실행된다.
+    // promise객체의 result값이 변수 result에 할당된다.
+    let result = await promise
+}
+
+f()
+```
+https://springfall.cc/post/7
+
+
+
+### promise
+promise로 비동기 작업을 만들때에는 new Promise를 하는 것이다.
+```js
+const promise = new Promise((resolve, reject) => {
+    // 비동기 작업
+})
+```
+new Promise안에 있는 콜백함수를 `executor`라고 부른다.
+executor는 첫번째 인수로 resolve, 두번째 인수로 reject를 받는다.
+resolve는 executor내에서 호출할 수 있는 또 다른 함수이며, resolve를 호출하게 된다면
+비동기 작업이 성공했다는 의미다.
+reject또한 executor내에서 호출할 수 있는 또 다른 함수이며 reject를 호출하게 된다면
+비동기 작업이 실패했다는 의미다.
+new Promise를 하는 순간 이곳에 할당된 비동기 작업은 바로 시작되며, 기다리지 않고
+바로 호출해버린다.
