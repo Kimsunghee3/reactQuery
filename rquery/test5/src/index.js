@@ -3,23 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { QueryClientProvider, QueryClient, QueryCache } from "react-query"
 
-const queryClient = new QueryClient({
-  queryCache: new QueryCache({
-    onError: (error, query) => {
-      console.log('onError', error)
-    },
-    onSuccess: (data) => {
-      console.log('onSuccess', data)
-    }
-  })
-})
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <QueryClientProvider client={queryClient}>
+  <React.StrictMode>
     <App />
-  </QueryClientProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

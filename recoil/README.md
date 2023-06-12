@@ -47,3 +47,7 @@ react-query `변경된 부분의 일부만 재랜더함`
 
 > 개발 경험
 > 생태계
+
+
+### uesMutation
+usemutation에는 mutate, isError, isLoading등의 옵션이 있다.
