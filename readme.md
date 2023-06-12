@@ -77,3 +77,16 @@ reject또한 executor내에서 호출할 수 있는 또 다른 함수이며 reje
 비동기 작업이 실패했다는 의미다.
 new Promise를 하는 순간 이곳에 할당된 비동기 작업은 바로 시작되며, 기다리지 않고
 바로 호출해버린다.
+
+### then / catch
+promise가 끝나고 난 다음의 동작을 설정해줄 수 있는 게 바로 `then메서드`와 `catch메서드`이다.
+then메서드는 해당 promise가 성공했을 때의 동작을 지정하며, 인자로 함수를 받는다.
+catch메서드는 해당 promise가 실패했을 때 동작을 지정하며, 인자로 함수를 받는다.
+
+
+### async await
+async함수의 리턴 값은 promise이다.
+await은 promise가 끝날 때까지 기다리라는 의미로 promise가 fulfilled(완료),
+reject(에러)가 되든 끝날 때까지 기다리는 함수이다. await은 async함수 내부에서만 사용할 수 있다.
+
+setTimeoutPromise의 executor에서 resolve함수가 호출될 때까지 기다린다. 그동안 startAsyncJobs는 멈춰있다.
