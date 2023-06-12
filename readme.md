@@ -90,3 +90,4 @@ await은 promise가 끝날 때까지 기다리라는 의미로 promise가 fulfil
 reject(에러)가 되든 끝날 때까지 기다리는 함수이다. await은 async함수 내부에서만 사용할 수 있다.
 
 setTimeoutPromise의 executor에서 resolve함수가 호출될 때까지 기다린다. 그동안 startAsyncJobs는 멈춰있다.
+
